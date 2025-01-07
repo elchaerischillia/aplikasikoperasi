@@ -1,0 +1,129 @@
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Input NIK -->
+        <EditText
+            android:id="@+id/editTextNik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_nik"
+            android:autofillHints="username"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Nama Lengkap -->
+        <EditText
+            android:id="@+id/editTextNamaLengkap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_nama_lengkap"
+            android:autofillHints="name"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Nomor Rekening -->
+        <EditText
+            android:id="@+id/editTextNoRek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_nomor_rekening"
+            android:autofillHints="postalAddress"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Nama Bank -->
+        <EditText
+            android:id="@+id/editTextNamaBank"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_nama_bank"
+            android:autofillHints="organizationName"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Tempat Lahir -->
+        <EditText
+            android:id="@+id/editTextTmptLahir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_tempat_lahir"
+            android:autofillHints="name"
+            android:inputType="text"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Tanggal Lahir -->
+        <EditText
+            android:id="@+id/editTextTglLahir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_tanggal_lahir"
+            android:autofillHints="date"
+            android:inputType="date"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Jenis Kelamin -->
+        <TextView
+            android:id="@+id/labelSpinnerJK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/pilih_jenis_kelamin"
+            android:padding="8dp"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinnerJK"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:contentDescription="@string/jenis_kelamin"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Input Nomor HP -->
+        <EditText
+            android:id="@+id/editTextNoHP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_nomor_hp"
+            android:autofillHints="phoneNumber"
+            android:inputType="phone"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Input Alamat -->
+        <EditText
+            android:id="@+id/editTextAlamat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/input_alamat"
+            android:autofillHints="postalAddress"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="16dp"
+            android:padding="12dp" />
+
+        <!-- Tombol Simpan -->
+        <Button
+            android:id="@+id/buttonSimpanAnggota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/simpan_anggota"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

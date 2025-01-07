@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    android:background="#F0F0F0">
+
+    <!-- Judul Koperasi -->
+    <TextView
+        android:id="@+id/tvKoperasiTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KOPERASI SIMPAN PINJAM KERINCI MAKMUR JAYA"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:textColor="#000000" />
+
+    <!-- Gambar Logo -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo2"
+        android:contentDescription="Logo Koperasi"
+        android:layout_marginBottom="15dp" />
+
+    <!-- Judul Dashboard -->
+    <TextView
+        android:id="@+id/tvDashboardTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dashboard"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="24dp"
+        android:textColor="#000000" />
+
+    <!-- Tombol Navigasi ke Fitur Anggota -->
+    <Button
+        android:id="@+id/btnAnggota"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Daftar Anggota"
+        android:padding="12dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tombol Navigasi ke Fitur Simpanan -->
+    <Button
+        android:id="@+id/btnSimpanan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpanan"
+        android:padding="12dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Tombol Navigasi ke Fitur Pinjaman -->
+    <Button
+        android:id="@+id/btnPinjaman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pinjaman"
+        android:padding="12dp"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+</LinearLayout>

@@ -1,0 +1,17 @@
+<resources>
+    <string-array name="jenis_kelamin_array">
+        <item>Laki-laki</item>
+        <item>Perempuan</item>
+    </string-array>
+    <string name="input_nik">Input NIK</string>
+    <string name="input_nama_lengkap">Input Nama Lengkap</string>
+    <string name="input_tempat_lahir">Input Tempat Lahir</string>
+    <string name="input_tanggal_lahir">Input Tanggal Lahir</string>
+    <string name="pilih_jenis_kelamin">Pilih Jenis Kelamin</string>
+    <string name="input_nomor_hp">Input Nomor HP</string>
+    <string name="input_alamat">Input Alamat</string>
+    <string name="simpan_anggota">Simpan Anggota</string>
+    <string name="input_nomor_rekening">Input Nomor Rekening</string>
+    <string name="input_nama_bank">Input Nama Bank</string>
+    <string name="jenis_kelamin">Pilih Jenis Kelamin</string>
+</resources>
