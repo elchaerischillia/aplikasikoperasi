@@ -12,8 +12,9 @@ public class Anggota implements Serializable {
     private String noHP;
     private String alamat;
     private String jenisKelamin;
+    private int id;
 
-    public Anggota(String nama, String nik, String ttl, String noRek, String namaBank,
+    public Anggota(int id, String nama, String nik, String ttl, String noRek, String namaBank,
                    String tmptLahir, String noHP, String alamat, String jenisKelamin) {
         this.nama = nama;
         this.nik = nik;
@@ -27,6 +28,7 @@ public class Anggota implements Serializable {
     }
 
     // Getter methods
+    public int getId() {return id;}
     public String getNama() { return nama; }
     public String getNik() { return nik; }
     public String getTtl() { return ttl; }

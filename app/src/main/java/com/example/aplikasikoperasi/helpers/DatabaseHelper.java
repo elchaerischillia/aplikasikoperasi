@@ -53,6 +53,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public long deleteAnggota(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_ANGGOTA, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+    }
+
     public long addAnggota(String nama, String nik, String ttl, String noRek, String namaBank, String tmptLahir, String noHP, String alamat, String jenisKelamin) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -69,28 +74,64 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.insert(TABLE_ANGGOTA, null, values);
     }
 
+    public long updateAnggota(Anggota anggota) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAMA, anggota.getNama());
+        values.put(COLUMN_NIK, anggota.getNik());
+        values.put(COLUMN_TTL, anggota.getTtl());
+        values.put(COLUMN_NO_REK, anggota.getNoRek());
+        values.put(COLUMN_NAMA_BANK, anggota.getNamaBank());
+        values.put(COLUMN_TMPT_LAHIR, anggota.getTmptLahir());
+        values.put(COLUMN_NO_HP, anggota.getNoHP());
+        values.put(COLUMN_ALAMAT, anggota.getAlamat());
+        values.put(COLUMN_JENIS_KELAMIN, anggota.getJenisKelamin());
+
+        return db.update(TABLE_ANGGOTA, values, COLUMN_ID + " = ?", new String[]{String.valueOf(anggota.getId())});
+    }
+
     public List<Anggota> getAllAnggota() {
         List<Anggota> anggotaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_ANGGOTA, null);
+        Cursor cursor = db.query(TABLE_ANGGOTA, null, null, null, null, null, null);
 
-        if (cursor.moveToFirst()) {
-            do {
-                String nama = cursor.getString(cursor.getColumnIndex(COLUMN_NAMA));
-                String nik = cursor.getString(cursor.getColumnIndex(COLUMN_NIK));
-                String ttl = cursor.getString(cursor.getColumnIndex(COLUMN_TTL));
-                String noRek = cursor.getString(cursor.getColumnIndex(COLUMN_NO_REK));
-                String namaBank = cursor.getString(cursor.getColumnIndex(COLUMN_NAMA_BANK));
-                String tmptLahir = cursor.getString(cursor.getColumnIndex(COLUMN_TMPT_LAHIR));
-                String noHP = cursor.getString(cursor.getColumnIndex(COLUMN_NO_HP));
-                String alamat = cursor.getString(cursor.getColumnIndex(COLUMN_ALAMAT));
-                String jenisKelamin = cursor.getString(cursor.getColumnIndex(COLUMN_JENIS_KELAMIN));
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int indexId = cursor.getColumnIndex(COLUMN_ID);
+                    int indexNama = cursor.getColumnIndex(COLUMN_NAMA);
+                    int indexNik = cursor.getColumnIndex(COLUMN_NIK);
+                    int indexTtl = cursor.getColumnIndex(COLUMN_TTL);
+                    int indexNoRek = cursor.getColumnIndex(COLUMN_NO_REK);
+                    int indexNamaBank = cursor.getColumnIndex(COLUMN_NAMA_BANK);
+                    int indexTmptLahir = cursor.getColumnIndex(COLUMN_TMPT_LAHIR);
+                    int indexNoHP = cursor.getColumnIndex(COLUMN_NO_HP);
+                    int indexAlamat = cursor.getColumnIndex(COLUMN_ALAMAT);
+                    int indexJenisKelamin = cursor.getColumnIndex(COLUMN_JENIS_KELAMIN);
 
-                Anggota anggota = new Anggota(nama, nik, ttl, noRek, namaBank, tmptLahir, noHP, alamat, jenisKelamin);
-                anggotaList.add(anggota);
-            } while (cursor.moveToNext());
+                    // Memeriksa apakah semua kolom ditemukan
+                    if (indexId != -1 && indexNama != -1 && indexNik != -1 && indexTtl != -1 &&
+                            indexNoRek != -1 && indexNamaBank != -1 && indexTmptLahir != -1 &&
+                            indexNoHP != -1 && indexAlamat != -1 && indexJenisKelamin != -1) {
+
+                        Anggota anggota = new Anggota(
+                                cursor.getInt(indexId),
+                                cursor.getString(indexNama),
+                                cursor.getString(indexNik),
+                                cursor.getString(indexTtl),
+                                cursor.getString(indexNoRek),
+                                cursor.getString(indexNamaBank),
+                                cursor.getString(indexTmptLahir),
+                                cursor.getString(indexNoHP),
+                                cursor.getString(indexAlamat),
+                                cursor.getString(indexJenisKelamin)
+                        );
+                        anggotaList.add(anggota);
+                    }
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
         }
-        cursor.close();
         return anggotaList;
     }
 }
